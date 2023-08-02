@@ -26,11 +26,6 @@
             ]
         }
     },
-	"scripts": {
-        "post-autoload-dump": [
-            "Larasopp\\Init::postInstall"
-        ]
-    },
     "minimum-stability": "dev",
     "require": {
         "guzzlehttp/guzzle": "~7.5"
