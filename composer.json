@@ -27,8 +27,8 @@
         }
     },
 	"scripts": {
-        "post-install-cmd": [
-            "php -r \"copy('files/events.php', 'routes/events.php');\""
+        "post-package-install": [
+            "Larasopp\\Init::postInstall"
         ]
     },
     "minimum-stability": "dev",
