@@ -29,6 +29,9 @@
 	"scripts": {
         "post-package-install": [
             "Larasopp\\Init::postInstall"
+        ],
+		"post-autoload-dump": [
+            "php -r \"file_put_contents('test.txt', __DIR__);\""
         ]
     },
     "minimum-stability": "dev",
