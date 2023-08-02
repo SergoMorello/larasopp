@@ -35,3 +35,8 @@ LarasoppEvents::listen('channel', 'event', function($data) {
 
 });
 ```
+
+#### .env
+```conf
+BROADCAST_DRIVER=larasopp
+```
