@@ -6,12 +6,8 @@ use Composer\Installer\PackageEvent;
 
 class Init
 {
-	public static function postInstall(Event $event)
+	public static function postInstall(PackageEvent $event)
     {
-        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
-		dd(123);
-        copy($vendorDir . '/larasopp/larasopp/files/events.php', 'routes/events.php');
-
-		
+        copy('vendor/larasopp/larasopp/files/events.php', 'routes/events.php');
     }
 }
