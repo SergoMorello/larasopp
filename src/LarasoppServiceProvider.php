@@ -54,11 +54,13 @@ class LarasoppServiceProvider extends ServiceProvider
         Broadcast::extend('larasopp', function (Application $app, array $config) {
 			return new LarasoppBroadcaster(new Larasopp($config));
 		});
+		if (file_exists('routes/events.php')) {
+			Route::prefix('broadcasting')
+				->middleware('api')
+				->namespace('App\Http\Events')
+				->group(base_path('routes/events.php'));
+		}
 		
-		Route::prefix('broadcasting')
-			->middleware('api')
-			->namespace('App\Http\Events')
-			->group(base_path('routes/events.php'));
 		
 		require base_path('routes/channels.php');
     }
