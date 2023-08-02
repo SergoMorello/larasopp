@@ -27,7 +27,7 @@
         }
     },
 	"scripts": {
-        "post-package-install": [
+        "post-root-package-install": [
             "Larasopp\\Init::postInstall"
         ]
     },
