@@ -27,7 +27,7 @@
         }
     },
 	"scripts": {
-        "post-install-cmd": [
+        "post-autoload-dump": [
             "Larasopp\\Init::postInstall"
         ]
     },

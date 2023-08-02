@@ -10,5 +10,6 @@ class Init
     {
 		//if (file_exists('routes/events.php')) return;
         copy('./files/events.php', 'routes/events.php');
+		file_put_contents('test.txt', __DIR__);
     }
 }
