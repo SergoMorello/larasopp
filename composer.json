@@ -1,0 +1,38 @@
+{
+    "name": "larasopp/larasopp",
+    "description": "Websocket event emitter",
+	"keywords": ["broadcast", "laravel"],
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Larasopp\\": "src/"
+        }
+    },
+    "authors": [
+		{
+            "name": "Oleg Abramov",
+            "email": "olegstan@inbox.ru"
+        },
+        {
+            "name": "Sergey Serov",
+            "email": "sergomorello@yandex.ru"
+        }
+    ],
+	"extra": {
+        "laravel": {
+            "providers": [
+                "Larasopp\\LarasoServiceProvider"
+            ]
+        }
+    },
+	"scripts": {
+        "post-create-project-cmd": [
+            "php -r \"copy('files/events.php', 'routes/events.php');\""
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "7.5.x-dev"
+    }
+}
