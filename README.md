@@ -8,6 +8,18 @@
 composer require larasopp/larasopp
 ```
 
+#### config/broadcasting.php
+```php
+...
+'connections' => [
+
+		'larasopp' => [
+            'driver' => 'larasopp',
+			'host' => 'http://127.0.0.1:8123'
+        ],
+...
+```
+
 #### routes/events.php
 ```php
 <?php
