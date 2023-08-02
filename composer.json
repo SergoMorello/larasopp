@@ -27,7 +27,7 @@
         }
     },
 	"scripts": {
-        "post-create-project-cmd": [
+        "post-package-install": [
             "php -r \"copy('files/events.php', 'routes/events.php');\""
         ]
     },
