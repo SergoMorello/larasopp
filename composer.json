@@ -22,7 +22,7 @@
 	"extra": {
         "laravel": {
             "providers": [
-                "Larasopp\\LarasoServiceProvider"
+                "Larasopp\\LarasoppServiceProvider"
             ]
         }
     },
