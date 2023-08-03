@@ -2,7 +2,7 @@
     "name": "larasopp/larasopp",
     "description": "Websocket event emitter",
 	"keywords": ["broadcast", "laravel"],
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {

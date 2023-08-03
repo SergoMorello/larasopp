@@ -13,10 +13,10 @@ composer require larasopp/larasopp
 ...
 'connections' => [
 
-		'larasopp' => [
-            'driver' => 'larasopp',
-			'host' => 'http://127.0.0.1:8123'
-        ],
+	'larasopp' => [
+		'driver' => 'larasopp',
+		'host' => 'http://127.0.0.1:8123'
+	],
 ...
 ```
 
