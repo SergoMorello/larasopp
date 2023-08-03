@@ -11,7 +11,7 @@ class Subscribe extends Controller {
 		$this->channel = $channel;
 	}
 
-	public function bind(string $event, \Closure $callback) {
+	public function bind(string $event, \Closure $callback): self {
 		array_push($this->callbacks, function($eventData) use (&$callback) {
 			return $callback(new Larasopp($eventData));
 		});
@@ -22,5 +22,6 @@ class Subscribe extends Controller {
 				return $callback($eventData);
 			},$this->callbacks);
 		});
+		return $this;
 	}
 }
