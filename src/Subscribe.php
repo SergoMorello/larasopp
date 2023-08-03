@@ -12,15 +12,17 @@ class Subscribe extends Controller {
 	}
 
 	public function bind(string $event, \Closure $callback): self {
-		array_push($this->callbacks, function($eventData) use (&$callback) {
-			return $callback(new Larasopp($eventData));
+		if (!isset($this->callbacks[$event])) $this->callbacks[$event] = [];
+		
+		array_push($this->callbacks[$event], function($eventData) use (&$callback) {
+			return $callback($eventData);
 		});
-		Route::post('/trigger/' . $this->channel . '/' . $event, function(Request $req) {
-			$eventData = $req->json()->all() ?? [];
-			
+
+		Route::post('/trigger/' . $this->channel . '/' . $event, function(Request $req) use (&$event) {
+			$eventData = new Larasopp($req->json()->all() ?? []);
 			return array_map(function($callback) use (&$eventData) {
 				return $callback($eventData);
-			},$this->callbacks);
+			},$this->callbacks[$event]);
 		});
 		return $this;
 	}
