@@ -24,16 +24,18 @@ composer require larasopp/larasopp
 ```php
 <?php
 
-use Larasopp\LarasoppEvents;
 use Larasopp\Larasopp;
 
-LarasoppEvents::listen('channel', 'event', function($data) {
+$listener = Larasopp::subscribe('channel');
+
+$listener->bind('event', function(Larasopp $data){
 
 	Larasopp::trigger('channel', 'event', [
-		'message' => $data['message'] ? ''
+		'message' => $data->message
 	]);
 
 });
+
 ```
 
 #### .env

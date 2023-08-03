@@ -11,12 +11,12 @@
     },
     "authors": [
 		{
-            "name": "Oleg Abramov",
-            "email": "olegstan@inbox.ru"
-        },
-        {
             "name": "Sergey Serov",
             "email": "sergomorello@yandex.ru"
+        },
+		{
+            "name": "Oleg Abramov",
+            "email": "olegstan@inbox.ru"
         }
     ],
 	"extra": {

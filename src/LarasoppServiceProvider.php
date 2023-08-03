@@ -60,7 +60,7 @@ class LarasoppServiceProvider extends ServiceProvider
 		if (file_exists($eventsPath)) {
 			Route::prefix('broadcasting')
 				->middleware('api')
-				->namespace('App\Http\Events')
+				->namespace('\Larasopp')
 				->group($eventsPath);
 		}
 		
