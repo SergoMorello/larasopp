@@ -16,7 +16,7 @@ class LarasoppBroadcaster extends Broadcaster
 	/**
 	 * Instance Larasopp
 	 *
-	 * @var Larasopp\Larasopp
+	 * @var Larasopp
 	 */
 	protected $larasopp;
 
@@ -34,21 +34,21 @@ class LarasoppBroadcaster extends Broadcaster
      *
      * @throws \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException
      */
-    public function auth($req)
+    public function auth($request)
     {
-		$data = $req->json()->all();
+		$data = $request->json()->all();
 		$channelName = $data['channel'] ?? '';
 
         if (empty($channelName)) {
             throw new AccessDeniedHttpException;
         }
 
-		$req->setUserResolver(function () use ($data) {
-			return $data;
+		$request->setUserResolver(function() {
+			return auth()->user();
 		});
 		
         return parent::verifyUserCanAccessChannel(
-            $req, $channelName
+            $request, $channelName
         );
     }
 

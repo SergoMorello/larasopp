@@ -30,9 +30,8 @@ composer require larasopp/larasopp
 ...
 ```
 
-#### routes/events.php
+#### app\Providers\EventServiceProvider.php
 ```php
-<?php
 use Larasopp\LarasoppEvent;
 
 class EventServiceProvider extends ServiceProvider
@@ -57,6 +56,16 @@ class EventServiceProvider extends ServiceProvider
 		});
 	}
 
+```
+#### config/auth.php
+```php
+'guards' => [
+	'api' => [
+		'driver' => 'sanctum',
+		'provider' => 'users',
+		'hash' => true,
+	],
+	...
 ```
 
 #### .env

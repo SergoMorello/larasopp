@@ -20,24 +20,8 @@ class LarasoppServiceProvider extends ServiceProvider
     public function register()
     {
 		$this->app->resolving(ExceptionHandler::class, function ($handler) {
-			// $handler->renderable(function (\Throwable $e, $request) {
-			// 	if ($request->is('broadcasting/*')) {
-			// 		return response()->json([
-			// 			'success' => false,
-			// 			'message' => $e->getMessage()
-			// 		], 500);
-			// 	}
-			// });
+
 		});
-		// $exceptionHandler = resolve(ExceptionHandler::class);
-		// $exceptionHandler->renderable(function (\Throwable $e, $request) {
-		// 	if ($request->is('broadcasting/*')) {
-		// 		return response()->json([
-		// 			'success' => false,
-		// 			'message' => $e->getMessage()
-		// 		], 500);
-		// 	}
-        // });
     }
 
     /**
@@ -48,7 +32,7 @@ class LarasoppServiceProvider extends ServiceProvider
     public function boot()
     {
 		Broadcast::routes([
-			"middleware" => ['api']
+			"middleware" => ['auth:api']
 		]);
 
         Broadcast::extend('larasopp', function (Application $app, array $config) {
@@ -57,7 +41,7 @@ class LarasoppServiceProvider extends ServiceProvider
 		
 		Route::prefix('broadcasting')
 			->namespace('\Larasopp')
-			->middleware(['api', LarasoppMiddleware::class])
+			->middleware(['auth:api', LarasoppMiddleware::class])
 			->post('trigger', LarasoppController::class);
 		
 		require base_path('routes/channels.php');

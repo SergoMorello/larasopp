@@ -4,6 +4,7 @@ namespace Larasopp;
 
 use Closure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class LarasoppMiddleware
 {
@@ -17,7 +18,9 @@ class LarasoppMiddleware
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
-		if ($request->header('Controll-Token') != config('broadcasting.connections.larasopp.token')) abort(401);
+		if ($request->header('Controll-Token') != config('broadcasting.connections.larasopp.token')) {
+			throw new AccessDeniedHttpException;
+		}
         return $next($request);
     }
 }

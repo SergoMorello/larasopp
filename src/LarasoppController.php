@@ -10,7 +10,7 @@ class LarasoppController extends Controller {
 
 	public function __invoke(Request $request) {
 		if (!$request->has('channel', 'event')) return;
-		
+
 		$data = new LarasoppEvent([
 			'message' => $request->message,
 			'channel' => $request->channel,
