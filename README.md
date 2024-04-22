@@ -1,5 +1,14 @@
 # Larasopp
 
+#### Server
+```
+https://github.com/SergoMorello/larasopp.server
+```
+#### JS Client
+```
+npm i larasopp
+```
+
 ## Websocket event emitter for laravel
 
 ### Install
