@@ -28,6 +28,6 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "guzzlehttp/guzzle": "~7.5"
+		"textalk/websocket": "~1.5"
     }
 }

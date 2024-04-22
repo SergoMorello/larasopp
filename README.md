@@ -15,7 +15,8 @@ composer require larasopp/larasopp
 
 	'larasopp' => [
 		'driver' => 'larasopp',
-		'host' => 'http://127.0.0.1:8123'
+		'host' => 'ws://127.0.0.1:3001',
+		'token' => '1234'
 	],
 ...
 ```
