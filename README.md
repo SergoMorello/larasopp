@@ -33,6 +33,7 @@ composer require larasopp/larasopp
 #### routes/events.php
 ```php
 <?php
+use Larasopp\LarasoppEvent;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -45,8 +46,14 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
- 		Event::listen('larasopp-channel-event', function ($message) {
-			//
+ 		LarasoppEvent::listen('channel', 'event', function (LarasoppEvent $event) {
+			// $event->message
+		});
+
+		// OR
+		LarasoppEvent::listen('channel', '*', function (LarasoppEvent $event) {
+			// $event->event
+			// $event->message
 		});
 	}
 
