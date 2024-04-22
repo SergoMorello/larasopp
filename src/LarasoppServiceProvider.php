@@ -55,14 +55,10 @@ class LarasoppServiceProvider extends ServiceProvider
 			return new LarasoppBroadcaster(new Larasopp($config));
 		});
 		
-		$eventsPath = base_path('routes/events.php');
-		
-		if (file_exists($eventsPath)) {
-			Route::prefix('broadcasting')
-				->middleware('api')
-				->namespace('\Larasopp')
-				->group($eventsPath);
-		}
+		Route::prefix('broadcasting')
+			->namespace('\Larasopp')
+			->middleware(['api', LarasoppMiddleware::class])
+			->post('trigger', LarasoppController::class);
 		
 		require base_path('routes/channels.php');
     }

@@ -34,17 +34,21 @@ composer require larasopp/larasopp
 ```php
 <?php
 
-use Larasopp\Larasopp;
-
-$listener = Larasopp::subscribe('channel');
-
-$listener->bind('event', function(Larasopp $data){
-
-	Larasopp::trigger('channel', 'event', [
-		'message' => $data->message
-	]);
-
-});
+class EventServiceProvider extends ServiceProvider
+{
+	...
+	
+	 /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+ 		Event::listen('larasopp-channel-event', function ($message) {
+			//
+		});
+	}
 
 ```
 

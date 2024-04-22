@@ -2,7 +2,6 @@
 
 namespace Larasopp;
 
-use Illuminate\Support\Facades\Http;
 use WebSocket\Client;
 
 class Larasopp {
@@ -39,9 +38,5 @@ class Larasopp {
 			'message' => $payload
 		]));
 		$client->close();
-	}
-
-	public static function subscribe(string $channel): Subscribe {
-		return new Subscribe($channel);
 	}
 }
