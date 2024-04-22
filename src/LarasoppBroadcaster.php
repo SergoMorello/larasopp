@@ -16,7 +16,7 @@ class LarasoppBroadcaster extends Broadcaster
 	/**
 	 * Instance Larasopp
 	 *
-	 * @var Larasopp
+	 * @var Larasopp\Larasopp
 	 */
 	protected $larasopp;
 
