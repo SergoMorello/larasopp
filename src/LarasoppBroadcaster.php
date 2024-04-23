@@ -38,7 +38,7 @@ class LarasoppBroadcaster extends Broadcaster
     {
 		$data = $request->json()->all();
 		$channelName = $data['channel'] ?? '';
-
+		
         if (empty($channelName)) {
             throw new AccessDeniedHttpException;
         }
