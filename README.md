@@ -25,7 +25,7 @@ composer require larasopp/larasopp
 	'larasopp' => [
 		'driver' => 'larasopp',
 		'host' => env('LARASOPP_HOST', 'ws://127.0.0.1:3001'),
-		'token' => env('LARASOPP_TOKEN', 'token')
+		'key' => env('LARASOPP_key', 'key')
 	],
 ...
 ```
