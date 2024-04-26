@@ -36,16 +36,12 @@ class LarasoppBroadcaster extends Broadcaster
      */
     public function auth($request)
     {
-		$data = $request->json()->all();
-		$channelName = $data['channel'] ?? '';
+		$channelName = $request->channel;
 		
-        if (empty($channelName)) {
+		if (empty($request->channel) ||
+            ! $this->retrieveUser($request, $channelName)) {
             throw new AccessDeniedHttpException;
         }
-
-		$request->setUserResolver(function() {
-			return auth()->user();
-		});
 		
         return parent::verifyUserCanAccessChannel(
             $request, $channelName
@@ -61,7 +57,7 @@ class LarasoppBroadcaster extends Broadcaster
      */
     public function validAuthenticationResponse($request, $result)
     {
-		return ['success' => true];
+		return is_bool($result) ? ['success' => $result] : $result;
     }
 
     /**

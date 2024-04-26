@@ -19,6 +19,7 @@ class LarasoppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
 		$this->app->resolving(ExceptionHandler::class, function ($handler) {
 
 		});

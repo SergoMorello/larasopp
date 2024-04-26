@@ -18,7 +18,7 @@ class LarasoppMiddleware
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
-		if ($request->header('Controll-Token') != config('broadcasting.connections.larasopp.token')) {
+		if ($request->header('Controll-Key') != config('broadcasting.connections.larasopp.key')) {
 			throw new AccessDeniedHttpException;
 		}
         return $next($request);
